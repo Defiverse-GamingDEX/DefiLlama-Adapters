@@ -15,7 +15,7 @@ const endPoints = {
   crescent: "https://mainnet.crescent.network:1317",
   osmosis: "https://rest-osmosis.ecostake.com",
   cosmos: "https://cosmoshub-lcd.stakely.io",
-  kujira: "https://kuji-api.kleomedes.network",
+  kujira: "https://kujira-rest.publicnode.com",
   comdex: "https://rest.comdex.one",
   terra: "https://terra-classic-lcd.publicnode.com",
   terra2: "https://terra-lcd.publicnode.com",
@@ -37,11 +37,11 @@ const endPoints = {
   neutron: "https://rest-kralum.neutron-1.neutron.org",
   quasar: "https://quasar-api.polkachu.com",
   gravitybridge: "https://gravitychain.io:1317",
-  sei: "https://sei-rest.publicnode.com",
+  sei: "https://sei-api.polkachu.com",
   aura: "https://lcd.aura.network",
   archway: "https://api.mainnet.archway.io",
   sifchain: "https://sifchain-api.polkachu.com",
-  nolus: "https://pirin-cl.nolus.network:1317",
+  nolus: "https://lcd.nolus.network",
   nibiru: "https://lcd.nibiru.fi",
   bostrom: "https://lcd.bostrom.cybernode.ai",
   joltify: "https://lcd.joltify.io",
@@ -55,8 +55,14 @@ const endPoints = {
   band: 'https://laozi1.bandchain.org/api',
   celestia: 'https://celestia-rest.publicnode.com',
   dydx: 'https://dydx-rest.publicnode.com',
-  carbon: 'https://rest.lavenderfive.com/carbon/',
+  carbon: 'https://api.carbon.network',
   evmos: 'https://evmos-api.polkachu.com',
+  regen: 'https://rest-regen.ecostake.com',
+  sommelier: 'https://sommelier-rpc.polkachu.com',
+  stride: 'https://stride-api.polkachu.com',
+  babylon: 'https://babylon-api.polkachu.com',
+  milkyway_rollup: 'https://archival-rest-moo-1.anvil.asia-southeast.initia.xyz',
+  titan: 'https://titan-lcd.titanlab.io'
 };
 
 const chainSubpaths = {

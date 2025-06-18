@@ -144,8 +144,12 @@ function validateHallmarks(hallmark) {
   const passedTimestamp = process.argv[3]
   if (passedTimestamp !== undefined) {
     unixTimestamp = Number(passedTimestamp)
-    const res = await getBlocks(unixTimestamp, chains)
-    chainBlocks = res.chainBlocks
+
+    // other chains than evm will fail to get block at timestamp
+    try {
+      const res = await getBlocks(unixTimestamp, chains)
+      chainBlocks = res.chainBlocks
+    } catch(e) { /* ignore empty block statement */}
   }
   const ethBlock = chainBlocks.ethereum;
   const usdTvls = {};
@@ -354,7 +358,7 @@ function fixBalances(balances) {
     else if (!token.includes(':')) newKey = `coingecko:${token}`
     if (newKey) {
       delete balances[token]
-      sdk.util.sumSingleBalance(balances, newKey, BigNumber(value).toFixed(0))
+      sdk.util.sumSingleBalance(balances, newKey, value)
     }
   })
 }
@@ -424,7 +428,7 @@ async function computeTVL(balances, timestamp) {
 
       let amount, usdAmount;
       if (address.includes(":") && !address.startsWith("coingecko:")) {
-        amount = new BigNumber(balance).div(10 ** data.decimals).toNumber();
+        amount = Number(balance) / 10 ** data.decimals
         usdAmount = amount * data.price;
       } else {
         amount = Number(balance);
